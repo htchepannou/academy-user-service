@@ -27,5 +27,5 @@ notifications:
 deploy:
   provider: heroku
   api_key: $HEROKU_API_KEY
-  app: io-tchepannou-academy-user-service
+  app: io-tchepannou-a-user-service
   on: master
