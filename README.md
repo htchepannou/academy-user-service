@@ -38,8 +38,8 @@ $ java -jar target/academy-user-service.jar
     - [Service Health](http://localhost:8080/health) 
 
 - Integration Environment
-    - [API Documentation](https://io-tchepannou-academy-user-service.herokuapp.com/swagger-ui.html) 
-    - [Service Health](https://io-tchepannou-academy-user-service.herokuapp.com/health) 
+    - [API Documentation](https://io-tchepannou-a-user-service.herokuapp.com/swagger-ui.html) 
+    - [Service Health](https://io-tchepannou-a-user-service.herokuapp.com/health) 
 
 ## License
 This project is open source sofware under the [MIT License](https://opensource.org/licenses/MIT)
