@@ -14,7 +14,7 @@ public class PasswordEncryptorTest {
     public void shouldEncyptPassword() throws Exception {
         final Account account = createAccount(1, 1111l);
 
-        assertThat(encryptor.encrypt(account, "foo")).isEqualTo("1d3330889fa5a01d3480e92f8c05f50d");
+        assertThat(encryptor.encrypt(account, "foo")).isEqualTo("dbfe1cffb708eb3b316e2f68a1ff2836");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -26,7 +26,7 @@ public class PasswordEncryptorTest {
 
     @Test
     public void matches() throws Exception {
-        final Account account = createAccount(1, 1111l, "1d3330889fa5a01d3480e92f8c05f50d");
+        final Account account = createAccount(1, 1111l, "dbfe1cffb708eb3b316e2f68a1ff2836");
 
         assertThat(encryptor.matches(account, "foo")).isTrue();
     }
