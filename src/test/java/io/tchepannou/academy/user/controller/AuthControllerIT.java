@@ -22,6 +22,7 @@ import java.util.Date;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -90,4 +91,22 @@ public class AuthControllerIT extends ControllerITSupport{
         assertThat(session.isActive()).isTrue();
     }
 
+    @Test
+    public void validate() throws Exception{
+        mockMvc
+                .perform(
+                        get("/academy/v1/auth/access_token/12345678901234567890123456789012")
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.transactionId", notNullValue()))
+                .andExpect(jsonPath("$.session.accessToken", is("12345678901234567890123456789012")))
+                .andExpect(jsonPath("$.session.roleId", is(1)))
+                .andExpect(jsonPath("$.session.accountId", is(201)))
+                .andExpect(jsonPath("$.session.expiryDateTime", notNullValue()))
+                .andExpect(jsonPath("$.session.active", is(true)))
+                ;
+    }
 }

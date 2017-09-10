@@ -15,6 +15,8 @@ import io.tchepannou.academy.user.dto.auth.AuthResponse;
 import io.tchepannou.academy.user.exception.BusinessError;
 import io.tchepannou.academy.user.exception.BusinessException;
 import io.tchepannou.academy.user.exception.InvalidRequestException;
+import io.tchepannou.academy.user.exception.NotFoundException;
+import io.tchepannou.academy.user.exception.SessionException;
 import io.tchepannou.academy.user.mapper.SessionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -83,6 +85,28 @@ public class AuthService {
         session.setActive(true);
 
         sessionDao.save(session);
+
+        final AuthResponse response = new AuthResponse();
+        response.setSession(sessionMapper.toSessionDto(session));
+        return response;
+    }
+
+    public AuthResponse validate(final String accessToken){
+        final Session session = sessionDao.findByAccessToken(accessToken);
+        if (session == null){
+            throw new NotFoundException(BusinessError.SESSION_NOT_FOUND);
+        }
+
+        /* session expired ? */
+        final long now = System.currentTimeMillis();
+        if (now > session.getExpiryDateTime().getTime()){
+            throw new SessionException(BusinessError.SESSION_EXPIRED);
+        }
+
+        /* session active ? */
+        if (!session.isActive()){
+            throw new SessionException(BusinessError.SESSION_INACTIVE);
+        }
 
         final AuthResponse response = new AuthResponse();
         response.setSession(sessionMapper.toSessionDto(session));

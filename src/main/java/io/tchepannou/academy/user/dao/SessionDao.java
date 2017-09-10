@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SessionDao extends CrudRepository<Session, Integer>{
+    Session findByAccessToken(String accessToken);
 }

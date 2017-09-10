@@ -6,11 +6,6 @@ public class BusinessException extends RuntimeException {
     public BusinessException(final BusinessError errorCode) {
         this.errorCode = errorCode;
     }
-    public BusinessException(final BusinessError errorCode, final Throwable cause) {
-        super(cause);
-
-        this.errorCode = errorCode;
-    }
 
     public BusinessError getErrorCode() {
         return errorCode;

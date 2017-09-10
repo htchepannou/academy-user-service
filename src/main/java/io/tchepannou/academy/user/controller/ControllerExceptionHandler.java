@@ -6,6 +6,7 @@ import io.tchepannou.academy.user.exception.BusinessError;
 import io.tchepannou.academy.user.exception.BusinessException;
 import io.tchepannou.academy.user.exception.InvalidRequestException;
 import io.tchepannou.academy.user.exception.NotFoundException;
+import io.tchepannou.academy.user.exception.SessionException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -48,6 +49,12 @@ public class ControllerExceptionHandler extends BaseController{
     public ResponseEntity<ErrorResponse> handleNotFoundException(final NotFoundException ex) {
         final ErrorResponse response = createErrorResponse(ex);
         return new ResponseEntity(response, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(SessionException.class)
+    public ResponseEntity<ErrorResponse> handleSessionException(final SessionException ex) {
+        final ErrorResponse response = createErrorResponse(ex);
+        return new ResponseEntity(response, HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(InvalidRequestException.class)
