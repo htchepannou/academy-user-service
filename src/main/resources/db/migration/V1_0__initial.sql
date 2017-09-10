@@ -7,14 +7,13 @@ CREATE TABLE T_ROLE_TYPE(
   PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 
-
 CREATE TABLE T_PERSON(
   id          INT           NOT NULL AUTO_INCREMENT,
 
   email       VARCHAR(200)  NOT NULL,
-  firstname   VARCHAR(50),
-  lastname    VARCHAR(50),
-  language    VARCHAR(2),
+  first_name  VARCHAR(50),
+  last_name   VARCHAR(50),
+  language    CHAR(2),
   picture_url TEXT,
   biography   TEXT,
 
@@ -25,7 +24,6 @@ CREATE TABLE T_PERSON(
   UNIQUE(email),
   PRIMARY KEY (id)
 ) ENGINE = InnoDB;
-
 
 CREATE TABLE T_ROLE(
   id          INT     NOT NULL AUTO_INCREMENT,
@@ -38,14 +36,32 @@ CREATE TABLE T_ROLE(
   PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 
-
 CREATE TABLE T_ACCOUNT(
-  id          INT     NOT NULL AUTO_INCREMENT,
-  person_fk   INT     NOT NULL REFERENCES T_PERSON(id),
+  id          INT         NOT NULL AUTO_INCREMENT,
+  person_fk   INT         NOT NULL REFERENCES T_PERSON(id),
 
-  insert_timestamp    DATETIME   DEFAULT CURRENT_TIMESTAMP,
-  update_timestamp    DATETIME   DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  password    CHAR(32) NOT NULL,
 
+  insert_timestamp    DATETIME    DEFAULT CURRENT_TIMESTAMP,
+  update_timestamp    DATETIME    DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  PRIMARY KEY (id)
+) ENGINE = InnoDB;
+
+
+CREATE TABLE T_SESSION(
+  id          INT NOT NULL AUTO_INCREMENT,
+  account_fk  INT NOT NULL REFERENCES T_ACCOUNT(id),
+  role_fk     INT NOT NULL REFERENCES T_ROLE_TYPE(id),
+
+  access_token      CHAR(36)    NOT NULL,
+  expiry_datetime   DATETIME    NOT NULL,
+  active            BIT,
+
+  insert_timestamp    DATETIME    DEFAULT CURRENT_TIMESTAMP,
+  update_timestamp    DATETIME    DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+  UNIQUE(access_token),
   PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 

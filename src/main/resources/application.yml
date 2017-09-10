@@ -30,6 +30,10 @@ swagger:
 server:
   port: 8080
 
+management:
+  security:
+    enabled: false
+
 endpoints:
   enabled: true
   health:
@@ -50,3 +54,7 @@ logging:
     console: "%d Type=%level Logger=%c Thread=%thread %m%n"
     file: "%d Type=%level Logger=%c Thread=%thread %m%n"
 
+academy:
+  service:
+    AuthService:
+      sessionTTLMinutes: 60   # 1 hour

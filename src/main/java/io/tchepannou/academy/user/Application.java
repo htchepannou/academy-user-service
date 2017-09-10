@@ -12,8 +12,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @EnableAutoConfiguration
 @EnableTransactionManagement
-@EnableJpaRepositories("io.tchepannou.academy")
-@EntityScan("io.tchepannou.academy.domain")
+@EnableJpaRepositories("io.tchepannou.academy.user")
+@EntityScan("io.tchepannou.academy.user.domain")
 public class Application {
     public static void main(final String[] args) throws Exception {
         SpringApplication.run(Application.class, args);

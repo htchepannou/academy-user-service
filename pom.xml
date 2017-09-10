@@ -312,9 +312,9 @@
                         <configuration>
                             <excludes>
                                 <exclude>**/*Application.*</exclude>
-                                <exclude>io/tchepannou/academy/config/*.*</exclude>
-                                <exclude>io/tchepannou/academy/domain/*.*</exclude>
-                                <exclude>io/tchepannou/academy/dto/*/*.*</exclude>
+                                <exclude>io/tchepannou/academy/user/config/*.*</exclude>
+                                <exclude>io/tchepannou/academy/user/domain/*.*</exclude>
+                                <exclude>io/tchepannou/academy/user/dto/*/*.*</exclude>
                             </excludes>
                             <dataFile>${project.build.directory}/jacoco-all.exec</dataFile>
 
