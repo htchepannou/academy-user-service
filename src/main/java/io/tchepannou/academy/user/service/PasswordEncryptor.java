@@ -1,12 +1,10 @@
 package io.tchepannou.academy.user.service;
 
 import io.tchepannou.academy.user.domain.Account;
-import org.apache.commons.lang.time.DateUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Date;
 
 @Component
 public class PasswordEncryptor {
@@ -39,13 +37,13 @@ public class PasswordEncryptor {
         return String.format("%s,%s", SALT_PREFIX, account.getId());
     }
 
-    public static void main(String[] args) throws Exception{
-        final String passowrd = "bar123";
-        final Date date = DateUtils.parseDate("2017-01-02 10:30:00", new String[] {"yyyy-MM-dd HH:mm:ss"});
-        final Account account = new Account();
-        account.setId(100);
-        account.setCreationDateTime(new java.sql.Timestamp(date.getTime()));
-
-        System.out.println(new PasswordEncryptor().encrypt(account, passowrd));
-    }
+//    public static void main(String[] args) throws Exception{
+//        final String passowrd = "herve";
+//        final Date date = DateUtils.parseDate("2017-01-02 10:30:00", new String[] {"yyyy-MM-dd HH:mm:ss"});
+//        final Account account = new Account();
+//        account.setId(1);
+//        account.setCreationDateTime(new java.sql.Timestamp(date.getTime()));
+//
+//        System.out.println(new PasswordEncryptor().encrypt(account, passowrd));
+//    }
 }
