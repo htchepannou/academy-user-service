@@ -32,8 +32,8 @@ This will generate the service binary ``target/academy-user-service.jar``
 $ java -Dspring.profiles.active=local -jar target/academy-user-service.jar
 ```
 The server will run locally on the port `18081`
-- [Swagger API Documentation](http://localhost:18081/swagger-ui.html) 
-- [Service Health](http://localhost:18081/health) 
+- Verify the status of the service at [http://localhost:18081/health](http://localhost:18081/health). The status should be `UP`. 
+- Access the API documentation at [http://localhost:18081/swagger-ui.html](http://localhost:18081/swagger-ui.html) 
 
 ## License
 This project is open source sofware under the [MIT License](https://opensource.org/licenses/MIT)
