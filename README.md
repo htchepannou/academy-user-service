@@ -35,10 +35,5 @@ The server will run locally on the port `18081`
 - [Swagger API Documentation](http://localhost:18081/swagger-ui.html) 
 - [Service Health](http://localhost:18081/health) 
 
-## Links
-- Integration Environment
-    - [API Documentation](https://io-tchepannou-a-user-service.herokuapp.com/swagger-ui.html) 
-    - [Service Health](https://io-tchepannou-a-user-service.herokuapp.com/health) 
-
 ## License
 This project is open source sofware under the [MIT License](https://opensource.org/licenses/MIT)
