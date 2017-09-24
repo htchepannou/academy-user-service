@@ -92,6 +92,36 @@ public class AuthControllerIT extends ControllerITSupport{
     }
 
     @Test
+    public void loginNadine() throws Exception {
+        final AuthRequest req = new AuthRequest();
+        req.setEmail("ntchepannou@gmail.com");
+        req.setPassword("nadine");
+        req.setRole("student");
+
+        final String jsonRequest = mapper.writeValueAsString(req);
+        final String json = mockMvc
+                .perform(
+                        post("/academy/v1/auth")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(jsonRequest)
+                )
+
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.transactionId", notNullValue()))
+                .andExpect(jsonPath("$.session.accessToken", notNullValue()))
+                .andExpect(jsonPath("$.session.roleId", is(1)))
+                .andExpect(jsonPath("$.session.accountId", is(2)))
+                .andExpect(jsonPath("$.session.expiryDateTime", notNullValue()))
+                .andExpect(jsonPath("$.session.active", is(true)))
+                .andReturn()
+                .getResponse()
+                .getContentAsString()
+                ;
+        final AuthResponse resp = mapper.readValue(json, AuthResponse.class);
+    }
+
+    @Test
     public void validate() throws Exception{
         mockMvc
                 .perform(

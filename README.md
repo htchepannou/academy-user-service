@@ -27,16 +27,15 @@ $ mvn clean install
 
 This will generate the service binary ``target/academy-user-service.jar``
 
-### Run the server
+### Run the server locally
 ```
-$ java -jar target/academy-user-service.jar
+$ java -Dspring.profiles.active=local -jar target/academy-user-service.jar
 ```
+The server will run locally on the port `18081`
+- [Swagger API Documentation](http://localhost:18081/swagger-ui.html) 
+- [Service Health](http://localhost:18081/health) 
 
 ## Links
-- Local Environment
-    - [API Documentation](http://localhost:8080/swagger-ui.html) 
-    - [Service Health](http://localhost:8080/health) 
-
 - Integration Environment
     - [API Documentation](https://io-tchepannou-a-user-service.herokuapp.com/swagger-ui.html) 
     - [Service Health](https://io-tchepannou-a-user-service.herokuapp.com/health) 
