@@ -57,4 +57,4 @@ logging:
 academy:
   service:
     AuthService:
-      sessionTTLMinutes: 60   # 1 hour
+      sessionTTLMinutes: 1440  # day hour
