@@ -9,6 +9,8 @@ public class PersonDto {
     private String language;
     private String pictureUrl;
     private String biography;
+    private String websiteUrl;
+    private String title;
 
     public Integer getId() {
         return id;
@@ -64,5 +66,21 @@ public class PersonDto {
 
     public void setBiography(final String biography) {
         this.biography = biography;
+    }
+
+    public String getWebsiteUrl() {
+        return websiteUrl;
+    }
+
+    public void setWebsiteUrl(final String websiteUrl) {
+        this.websiteUrl = websiteUrl;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(final String title) {
+        this.title = title;
     }
 }

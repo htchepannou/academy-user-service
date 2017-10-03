@@ -15,7 +15,10 @@ CREATE TABLE T_PERSON(
   last_name   VARCHAR(50),
   language    CHAR(2),
   picture_url TEXT,
+  website_url TEXT,
+  title       VARCHAR(100),
   biography   TEXT,
+
 
 
   insert_timestamp    DATETIME   DEFAULT CURRENT_TIMESTAMP,

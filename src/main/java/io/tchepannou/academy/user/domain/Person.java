@@ -27,7 +27,13 @@ public class Person extends Persistent {
     @Column(name="picture_url")
     private String pictureUrl;
 
+    @Column(name="website_url")
+    private String websiteUrl;
+
+    private String title;
+
     private String biography;
+
 
     @Override
     public Integer getId() {
@@ -84,5 +90,21 @@ public class Person extends Persistent {
 
     public void setEmail(final String email) {
         this.email = email;
+    }
+
+    public String getWebsiteUrl() {
+        return websiteUrl;
+    }
+
+    public void setWebsiteUrl(final String websiteUrl) {
+        this.websiteUrl = websiteUrl;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(final String title) {
+        this.title = title;
     }
 }

@@ -51,6 +51,8 @@ public class PersonControllerIT {
                 .andExpect(jsonPath("$.person.lastName", is("Sponsible")))
                 .andExpect(jsonPath("$.person.language", is("en")))
                 .andExpect(jsonPath("$.person.pictureUrl", is("http://img.com/ray.sponsible")))
+                .andExpect(jsonPath("$.person.websiteUrl", is("https://www.facebook.com/ray.sponsible")))
+                .andExpect(jsonPath("$.person.title", is("Joker")))
                 .andExpect(jsonPath("$.person.biography", is("Bio...")))
         ;    }
 

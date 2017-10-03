@@ -14,6 +14,8 @@ public class PersonMapper {
         dto.setLastName(person.getLastName());
         dto.setLanguage(person.getLanguage());
         dto.setPictureUrl(person.getPictureUrl());
+        dto.setWebsiteUrl(person.getWebsiteUrl());
+        dto.setTitle(person.getTitle());
         return dto;
     }
 }
