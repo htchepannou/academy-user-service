@@ -152,8 +152,8 @@ public class AuthControllerErrorIT extends ControllerITSupport{
                 .andExpect(status().isConflict())
                 .andExpect(jsonPath("$.transactionId", notNullValue()))
                 .andExpect(jsonPath("$.errors.length()", is(1)))
-                .andExpect(jsonPath("$.errors[0].code", is(BusinessError.PASWORD_MISMATCH.getCode())))
-                .andExpect(jsonPath("$.errors[0].description", is(BusinessError.PASWORD_MISMATCH.getDescription())))
+                .andExpect(jsonPath("$.errors[0].code", is(BusinessError.PASSWORD_MISMATCH.getCode())))
+                .andExpect(jsonPath("$.errors[0].description", is(BusinessError.PASSWORD_MISMATCH.getDescription())))
         ;
     }
 
@@ -189,7 +189,7 @@ public class AuthControllerErrorIT extends ControllerITSupport{
         final AuthRequest request = new AuthRequest();
         request.setEmail("ray.sponsible@gmail.com");
         request.setPassword("123bar");
-        request.setRole("teacher");
+        request.setRole("instructor");
 
         // When
         final String json = mapper.writeValueAsString(request);

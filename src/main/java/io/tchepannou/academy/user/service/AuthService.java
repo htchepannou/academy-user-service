@@ -73,7 +73,7 @@ public class AuthService {
         if (account == null){
             throw new BusinessException(BusinessError.ACCOUNT_NOT_FOUND);
         } else if (!encryptor.matches(account, request.getPassword())){
-            throw new BusinessException(BusinessError.PASWORD_MISMATCH);
+            throw new BusinessException(BusinessError.PASSWORD_MISMATCH);
         }
 
         final long now = System.currentTimeMillis();

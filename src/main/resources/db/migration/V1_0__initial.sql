@@ -68,4 +68,4 @@ CREATE TABLE T_SESSION(
 
 -- DATA
 INSERT INTO T_ROLE_TYPE(id, name, rank) VALUE(1, 'student', 1);
-INSERT INTO T_ROLE_TYPE(id, name, rank) VALUE(2, 'teacher', 2);
+INSERT INTO T_ROLE_TYPE(id, name, rank) VALUE(2, 'instructor', 2);
