@@ -1,5 +1,6 @@
-package io.tchepannou.academy.user.dto.person;
+package io.tchepannou.academy.user.mapper;
 
+import io.tchepannou.academy.user.client.dto.PersonDto;
 import io.tchepannou.academy.user.domain.Person;
 import org.springframework.stereotype.Component;
 

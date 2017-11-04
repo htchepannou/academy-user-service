@@ -1,6 +1,6 @@
 package io.tchepannou.academy.user.controller;
 
-import io.tchepannou.academy.user.dto.BaseResponse;
+import io.tchepannou.academy.user.client.BaseResponse;
 import io.tchepannou.academy.user.service.TransactionIdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 

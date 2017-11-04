@@ -1,7 +1,7 @@
 package io.tchepannou.academy.user.mapper;
 
 import io.tchepannou.academy.user.domain.Session;
-import io.tchepannou.academy.user.dto.auth.SessionDto;
+import io.tchepannou.academy.user.client.dto.SessionDto;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;

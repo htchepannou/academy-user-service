@@ -1,7 +1,7 @@
 package io.tchepannou.academy.user.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.tchepannou.academy.user.dto.auth.AuthRequest;
+import io.tchepannou.academy.user.client.auth.AuthRequest;
 import io.tchepannou.academy.user.exception.BusinessError;
 import org.junit.Before;
 import org.junit.Test;
