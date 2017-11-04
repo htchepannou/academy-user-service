@@ -21,6 +21,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 
+        <academy-user-client.version>1.0.0</academy-user-client.version>
         <common-lang.version>2.4</common-lang.version>
         <commons-io.version>2.4</commons-io.version>
         <flyway.version>4.2.0</flyway.version>
@@ -48,7 +49,7 @@
         <dependency>
             <groupId>io.tchepannou.academy</groupId>
             <artifactId>academy-user-client</artifactId>
-            <version>1.0.0</version>
+            <version>${academy-user-client.version}</version>
         </dependency>
 
         <!-- ==== DATABASE ===== -->
